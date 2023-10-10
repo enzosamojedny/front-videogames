@@ -1,0 +1,87 @@
+body.card-detail{
+    background-color: rgba(0, 0, 0, 0.9);
+    background-image: linear-gradient(170deg, rgba(14, 14, 14, 0) 85%, rgba(14, 14, 14, 0.98)), radial-gradient(circle at 10% 0, rgba(34, 34, 34, 0.98), rgba(14, 14, 14, 0.2) 14%, rgba(14, 14, 14, 0) 48%);
+    scroll-behavior: smooth;
+}
+.detail-whole-container{
+    display: flex;
+    justify-content: center;
+    background-attachment: fixed;
+}
+@keyframes alternate-shadow-pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(110, 108, 108, 0.5), 0 0 20px rgba(82, 80, 80, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(110, 108, 108, 0.7), 0 0 25px rgba(82, 80, 80, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(110, 108, 108, 0.5), 0 0 20px rgba(82, 80, 80, 0.3);
+    }
+  }
+.detail-container{
+    box-shadow: 0 0 10px rgba(110, 108, 108, 0.5), 0 0 20px rgba(82, 80, 80, 0.3);
+    width: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    border-radius: 2%;
+    background-color: black ;
+    animation: alternate-shadow-pulse 3s infinite alternate;
+}
+.detail-image{
+    width:950px;
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+}
+.detail-title{
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.description-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 35px;
+    margin-right: 30px;
+    margin-top: 20px;
+    width:900px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.detail-description{ /*p*/
+    color: white;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+}
+.genres{
+    color: white;
+}
+.released{
+    color: white;
+    font-size: 1.5rem;
+}
+.rating{
+    color: white;
+    font-size: 1.5rem;
+}
+.genre-container{
+    display: flex;
+    flex-direction: row;
+  }
+  .genre-p{
+  color: white;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.9)
+  }
+  

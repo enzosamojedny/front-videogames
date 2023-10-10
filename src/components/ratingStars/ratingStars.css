@@ -1,0 +1,12 @@
+.star {
+    color: white; /* Default color for stars */
+    display: inline-block;
+}
+
+.star.filled {
+    color: yellow; /* Color for filled stars */
+}
+
+.star.partially-filled {
+    background: linear-gradient(to right, yellow, yellow 50%, white 50%, white); /* Partially filled color */
+}
