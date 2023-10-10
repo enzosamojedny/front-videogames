@@ -12,7 +12,9 @@ import axios from "axios";
 export const getAllVideogames = () => {
   return async (dispatch) => {
     try {
-      const response = await axios("http://localhost:3001/videogames");
+      const response = await axios(
+        "https://back-videogames-iqpl.onrender.com/videogames"
+      );
       dispatch({
         type: ALL_VIDEOGAMES,
         payload: response.data,
@@ -26,7 +28,9 @@ export const getAllVideogames = () => {
 export const getVideogameDetail = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios(`http://localhost:3001/videogames/${id}`);
+      const response = await axios(
+        `https://back-videogames-iqpl.onrender.com/videogames/${id}`
+      );
       dispatch({
         type: VIDEOGAME_DETAIL,
         payload: response.data,
@@ -40,7 +44,7 @@ export const getVideogameName = (name) => {
   return async (dispatch) => {
     try {
       const response = await axios(
-        `http://localhost:3001/videogames/name?name=${name}`
+        `https://back-videogames-iqpl.onrender.com/videogames/name?name=${name}`
       );
       dispatch({
         type: VIDEOGAME_NAME,
@@ -55,7 +59,7 @@ export const createVideogame = (videogame) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/videogames",
+        "https://back-videogames-iqpl.onrender.com/videogames",
         videogame
       );
       dispatch({
