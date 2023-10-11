@@ -14,7 +14,18 @@
     justify-content: space-around;
     margin-bottom: -20px;
   }
-  .footer-wrapper{ /*EJE Y, AGREGAR EJE X*/
+  .footer-wrapper{ 
     display: flex;
+    align-items: center;
+  }
+  .img{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  .content-wrapper{
+    display: flex;
+    flex-direction: row;
     align-items: center;
   }
