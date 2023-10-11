@@ -1,16 +1,15 @@
+import React from 'react';
+import './error.css';
 
 function Error() {
     return (
-        <div style={{
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-        }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black' }}>
-                <img src="../../../giphy.gif" alt="" style={{ width: '60%', height: '865px' }} />
+        <div className="error-container">
+            <div>
+                <h1 className="error-heading">404 Not Found</h1>
+                <img src="../../../404.png" alt="" className="error-image" />
             </div>
         </div>
     )
 }
 
-export default Error
+export default Error;

@@ -20,7 +20,7 @@ export const getAllVideogames = () => {
         payload: response.data,
       });
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   };
 };
@@ -36,7 +36,7 @@ export const getVideogameDetail = (id) => {
         payload: response.data,
       });
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   };
 };
@@ -51,7 +51,7 @@ export const getVideogameName = (name) => {
         payload: response.data,
       });
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   };
 };
@@ -67,7 +67,7 @@ export const createVideogame = (videogame) => {
         payload: { ...videogame, id: response.data.id },
       });
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   };
 };

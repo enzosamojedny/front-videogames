@@ -12,7 +12,6 @@ import Filter from '../filters/Filter.jsx';
 function Home() {
     const dispatch = useDispatch()
     const videogames = useSelector((state) => state.videogames)
-
     const [loading, setLoading] = useState(true);
     const [gamesPerPage, setGamesPerPage] = useState(15)
     const [currentPage, setCurrentPage] = useState(1)

@@ -6,11 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createVideogame } from '../../redux/actions'
 import validation from './helpers/validation'
 import Loader from '../loader/Loader'
+import CustomPopup from '../popup/Popup'
+import { NavLink } from 'react-router-dom'
 
 function Form() {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true);
     const { videogames } = useSelector((state) => state)
+    const [visibility, setVisibility] = useState(false);
     useEffect(() => {
         document.body.classList.add('create-page');
         return () => {
@@ -18,7 +21,9 @@ function Form() {
         };
 
     }, []);
-
+    const popupCloseHandler = (e) => {
+        setVisibility(e);
+    };
 
     const [input, setInput] = useState({
         name: '',
@@ -58,33 +63,36 @@ function Form() {
     }
 
 
+
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
         if (isFormInvalid()) {
             alert('Tu formulario está incompleto, por favor llena todos los campos');
         } else {
             setLoading(true);
             dispatch(createVideogame(input))
-            alert('¡Tu formulario se envió con éxito!');
-
-            setInput({
-                name: '',
-                background_image: '',
-                description: '',
-                genres: '',
-                platforms: '',
-                rating: '',
-                released: ''
-            });
+                .then(() => {
+                    setVisibility(true);
+                    setInput({
+                        name: '',
+                        background_image: '',
+                        description: '',
+                        genres: '',
+                        platforms: '',
+                        rating: '',
+                        released: ''
+                    });
+                })
+                .catch((error) => {
+                    setLoading(false);
+                });
         }
     }
-
 
     const isFormInvalid = () => {
         return Object.values(input).some((value) => value === '');
     };
-
-
 
     return (
         <div>
@@ -131,14 +139,22 @@ function Form() {
                                 name='platforms'
                                 value={platform}
                                 onChange={handleChange}
-                                checked={input.platforms.includes(platform)} // will keep checkbox checked if the genre/platform is in the input state
+                                checked={input.platforms.includes(platform)}
                             />
                             <label htmlFor={platform}>{platform}</label>
                         </div>
                     ))}
                     {error.platforms && <p style={{ color: 'white' }}>{error.platforms}</p>}
                 </div>
-                <button type='submit' className='bn3' onClick={handleSubmit}>CREATE VIDEOGAME</button>
+                <button type='submit' className='bn3' onClick={(e) => { handleSubmit(e); setVisibility(!visibility); }}>CREATE VIDEOGAME AND TOGGLE POPUP</button>
+
+                <CustomPopup
+                    onClose={popupCloseHandler}
+                    show={visibility}
+                    title="Your videogame has been created"
+                >
+                    <h3>Click to go <NavLink to={'/home'}>back</NavLink></h3>
+                </CustomPopup>
             </div>
             <Footer />
         </div>

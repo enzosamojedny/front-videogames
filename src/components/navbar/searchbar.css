@@ -11,9 +11,8 @@
     display: flex;
     flex-direction: column; 
     overflow-y: auto; 
-    margin-top: 10px;
     scroll-behavior: smooth;
-    width: 100%; 
+    width: 300px; 
 }
 
  .searchbar-wrapper {
@@ -28,6 +27,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 350px;
+    padding: 5px;
+}
+.game-wrapper:hover{
+  box-shadow: 0 0 10px rgba(110, 108, 108, 0.5), 0 0 20px rgba(82, 80, 80, 0.3);
 }
 .searchbar-container{
     display: flex;
@@ -57,18 +61,21 @@
   }
   .navbar-searchbar {
     font-size: 1.5rem;
-    position: relative; /* Ensure position is relative for absolute positioning */
+    position: relative;
   }
   
   .navbar-searchbar::placeholder {
-    color: #131212; /* Placeholder color */
+    color: #131212;
   }
   
   .navbar-searchbar:hover::placeholder {
-    color: #131212; /* Change to the color you want on hover */
+    color: #131212;
   }
   
   .navbar-searchbar:hover {
     background-color: rgba(245, 237, 237, 0.9);
   }
-  
+  .game-titles{
+    color: white;
+    margin-left: 20px;
+  }

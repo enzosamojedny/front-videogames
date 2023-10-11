@@ -1,28 +1,40 @@
-import React from 'react';
-// styling
-import './Checkout.css';
-// images
-import bone from './bone.png'
+import { useEffect, useState } from "react";
+import "./popup.css";
+import PropTypes from "prop-types";
+const CustomPopup = (props) => {
+    const [show, setShow] = useState(false);
 
-const PopUp = props => {
-    // function that takes boolean as param to conditionally display popup
-    const { setPopUp } = props
+    const closeHandler = (e) => {
+        setShow(false);
+        props.onClose(false);
+    };
+
+    useEffect(() => {
+        setShow(props.show);
+    }, [props.show]);
 
     return (
-        <div className="PopUp">
-            {/* x close window */}
-            <button className="popup-x" onClick={() => setPopUp(false)} >X</button>
-            <div className="pu-content-container">
-                <img className="pu-img" src={bone} alt="bone" />
-                <h1>Add more bones?</h1>
-            </div>
-            {/* button controls */}
-            <div className="pu-button-container">
-                <button onClick={() => setPopUp(false)}> MORE BONES! </button>
-                <button onClick={() => setPopUp(false)}> No, thank you. </button>
+        <div
+            style={{
+                visibility: show ? "visible" : "hidden",
+                opacity: show ? "1" : "0"
+            }}
+            className='overlay'
+        >
+            <div className='popup'>
+                <span className={close} onClick={closeHandler}>
+                    &times;
+                </span>
+                <h2>{props.title}</h2>
+                <div className='content'>{props.children}</div>
             </div>
         </div>
     );
-}
+};
 
-export default PopUp;
+CustomPopup.propTypes = {
+    title: PropTypes.string.isRequired,
+    show: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired
+};
+export default CustomPopup;

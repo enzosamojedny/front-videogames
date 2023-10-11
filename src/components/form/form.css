@@ -23,6 +23,10 @@ body.create-page{
 .form-input{
   padding: 10px;
 }
+.form-input:focus{
+  outline: 3px solid white;
+  outline-offset: .15rem;
+}
 .checkbox-whole-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 

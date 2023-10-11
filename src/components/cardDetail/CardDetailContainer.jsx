@@ -16,10 +16,10 @@ function CardDetailContainer() {
         dispatch(clearDetail())
         dispatch(getVideogameDetail(detailId))
             .then(() => {
-                timeoutId = setTimeout(() => setLoading(false), 1000);
+                timeoutId = setTimeout(() => setLoading(false), 0);
             })
             .catch(() => {
-                timeoutId = setTimeout(() => setLoading(false), 1000);
+                timeoutId = setTimeout(() => setLoading(false), 0);
             });
     }, [])
 

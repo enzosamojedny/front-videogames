@@ -51,7 +51,6 @@ body.card-detail{
     margin-top: 20px;
     width:900px;
     font-size: 1.5rem;
-    cursor: pointer;
 }
 .detail-description{ /*p*/
     color: white;
